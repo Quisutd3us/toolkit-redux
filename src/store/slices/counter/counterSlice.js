@@ -16,7 +16,10 @@ export const counterSlice = createSlice({
     incrementByStep: (state, step) => {
       state.counter += step.payload;
     },
+    reset:(state)=>{
+      state.counter = 10
+    },
   }
 });
 
-export const {increment, decrement, incrementByStep} = counterSlice.actions;
+export const {reset,increment, decrement, incrementByStep} = counterSlice.actions;

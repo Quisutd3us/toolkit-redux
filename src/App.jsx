@@ -1,5 +1,5 @@
 import {useSelector, useDispatch} from "react-redux";
-import {increment,decrement,incrementByStep} from "./store/slices/counter";
+import {increment,decrement,incrementByStep,reset} from "./store/slices/counter";
 import './App.css'
 
 function App() {
@@ -18,6 +18,9 @@ function App() {
           </button>
           <button onClick={() => dispatch(incrementByStep(2))}>
             Increment By 2
+          </button>
+          <button onClick={() => dispatch(reset())}>
+            Reset
           </button>
         </div>
       </>
