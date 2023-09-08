@@ -13,7 +13,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Provider store={store}>
         {/* <App/> */}
         {/*<PokemonApp/>*/}
-        <TodosApp/>
+        <div className="container">
+          <TodosApp/>
+        </div>
       </Provider>
     </React.StrictMode>,
 )
