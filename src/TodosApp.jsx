@@ -5,6 +5,19 @@ export const TodosApp = () => {
   const {data: todos = [], isLoading} = useGetTodosQuery();
   const [idTodo = 1, setIdTodo] = useState(1)
   const {data: todo = {}} = useGetTodoQuery(idTodo);
+
+  const onPreviousClick =(e) =>{
+    e.preventDefault();
+    if(todo.id === 1) return;
+    setIdTodo(todo.id - 1);
+  };
+
+  const onNextTodo =(e)=>{
+    e.preventDefault();
+    if(todo.id >100) return;
+    setIdTodo(todo.id + 1);
+  };
+
   return (
       <>
         <div className="row">
@@ -41,6 +54,8 @@ export const TodosApp = () => {
               </table>
             </div>
           </div>
+
+          {/*Search by id*/}
           <div className="col-xs-12 col-md-5">
             <div className="card">
               <div className="card-body">
@@ -59,7 +74,19 @@ export const TodosApp = () => {
                 </form>
               </div>
               <div className="card-body">
-                <h5 className={`card-title p-2 ${(!todo.completed) ? 'text-bg-success' : 'text-bg-danger'}`}>{todo.title}</h5>
+                <h5 className={`card-title p-2 rounded text-center ${(!todo.completed) ? 'text-bg-success' : 'text-bg-danger'}`}>{todo.title}</h5>
+              </div>
+              <div className="row">
+                <div className="col d-flex flex-row justify-content-center gap-2 p-4">
+                  <button
+                      className="btn btn btn-outline-dark btn-lg"
+                      onClick={onPreviousClick}>{'<<'}
+                  </button>
+                  <button
+                      className="btn btn btn-outline-dark btn-lg"
+                      onClick={onNextTodo}>{'>>'}
+                  </button>
+                </div>
               </div>
 
 
